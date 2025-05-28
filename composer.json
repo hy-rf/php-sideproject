@@ -5,5 +5,10 @@
         "symfony/dotenv": "^7.2",
         "symfony/http-foundation": "^7.2",
         "symfony/console": "^7.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Controller\\": "src/Controller/"
+        }
     }
 }
