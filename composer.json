@@ -8,7 +8,9 @@
   },
   "autoload": {
     "psr-4": {
-      "Controller\\": "src/Controller/"
+      "Controller\\": "src/Controller/",
+      "Service\\": "src/Service/",
+      "Data\\": "src/Data/"
     }
   }
 }

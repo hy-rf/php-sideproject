@@ -4,14 +4,18 @@ namespace Controller\Auth;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Data\Data;
 
 class AuthController
 {
     private Request $request;
 
+    private Data $dataHandler;
+
     public function __construct(Request $request)
     {
         $this->request = $request;
+        $this->dataHandler = new Data();
     }
 
     public function handle(): Response
@@ -35,9 +39,12 @@ class AuthController
 
     private function get(): Response
     {
+        $tableList = $this->dataHandler->getTableList();
+
         $data = [
             "message" => "GET successful",
             "timestamp" => time(),
+            "tables" => $tableList,
         ];
 
         return new Response(json_encode($data), Response::HTTP_OK, [
